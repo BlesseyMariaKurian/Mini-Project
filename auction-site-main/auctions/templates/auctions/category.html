@@ -1,0 +1,21 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <div class="categories-container">
+        <h2 class="text-primary">Categories</h2>
+
+        {% if categories %}
+            <ul class="list-group">
+                {% for category in categories %}
+                    <li class="list-group-item bg-light">
+                        <a href="{% url 'viewcategory' category.category %}" class="text-dark">{{ category.category }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <div class="alert alert-info">
+                <h5 class="text-info">Empty watchlist! Add some items.</h5>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
